@@ -1,0 +1,1167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- FAVICON LOGO SETUP -->
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png" />
+    <link rel="apple-touch-icon" href="logo.png" />
+
+    <title>Sisid PH - Master the art of the sisid</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts: Syne & Plus Jakarta Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- PAGE LOADER WITH DIVER ANIMATION -->
+    <div id="pageLoader" class="loader-overlay">
+      <div class="loader-content">
+        <div class="diver-bounce">🤿</div>
+        <h3>Submerging into Sisid PH...</h3>
+        <div class="loader-progress"></div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="logo-container">
+        <div class="logo" onclick="switchPage('home')">
+          <img src="logo.png" alt="Sisid PH Logo" class="nav-logo-img" />
+          <div>
+            <h2>SISID PH</h2>
+            <p>Master the art of the sisid</p>
+          </div>
+        </div>
+        <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <button
+          onclick="
+            switchPage('home');
+            closeMobileMenu();
+          "
+          class="active"
+          data-page="home"
+        >
+          Home
+        </button>
+        <button
+          onclick="
+            switchPage('schools');
+            closeMobileMenu();
+          "
+          data-page="schools"
+        >
+          Freediving Schools
+        </button>
+        <button
+          onclick="
+            switchPage('about');
+            closeMobileMenu();
+          "
+          data-page="about"
+        >
+          About Freediving
+        </button>
+        <button
+          onclick="
+            switchPage('faq');
+            closeMobileMenu();
+          "
+          data-page="faq"
+        >
+          FAQ
+        </button>
+        <button
+          onclick="
+            switchPage('how-to-book');
+            closeMobileMenu();
+          "
+          data-page="how-to-book"
+        >
+          How to Book
+        </button>
+        <button
+          onclick="
+            switchPage('contact');
+            closeMobileMenu();
+          "
+          data-page="contact"
+        >
+          Contact
+        </button>
+      </nav>
+      <button
+        class="nav-cta desktop-cta"
+        onclick="
+          switchPage('booking');
+          closeMobileMenu();
+        "
+      >
+        Book Now
+      </button>
+    </header>
+
+    <!-- MAIN APP CONTAINER -->
+    <main id="appMain">
+      <!-- PAGE 1: HOME -->
+      <section id="page-home" class="page active">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <span class="hero-tag"
+              >✨ Philippines' Central Freediving Directory</span
+            >
+            <h1>Master the Art of the <span>Sisid</span></h1>
+            <p>
+              Explore 32 verified freediving schools across Luzon, Visayas, and
+              Mindanao. Compare courses, check accommodation options, and book
+              your underwater adventure instantly.
+            </p>
+            <div class="hero-buttons">
+              <button class="cta-btn" onclick="switchPage('schools')">
+                Explore All 32 Schools →
+              </button>
+              <button class="secondary-btn" onclick="switchPage('how-to-book')">
+                How to Book
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- What is Freediving Section -->
+        <div class="container section-pad">
+          <div class="info-teaser-box">
+            <div class="teaser-text">
+              <h2>What is Freediving?</h2>
+              <p>
+                Freediving is an elite form of underwater diving that relies on
+                breath-holding rather than heavy scuba gear. Experience absolute
+                silence, deep mental relaxation, and harmony with Philippine
+                marine life.
+              </p>
+              <button
+                class="secondary-btn"
+                onclick="switchPage('about')"
+                style="margin-top: 15px"
+              >
+                Discover About Freediving →
+              </button>
+            </div>
+            <div
+              class="teaser-img"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&w=1000&q=85&quot;);
+              "
+            ></div>
+          </div>
+        </div>
+
+        <!-- Regional Highlights -->
+        <div class="container section-pad">
+          <h2 style="text-align: center; margin-bottom: 30px">
+            Explore By Archipelago Region
+          </h2>
+          <div class="region-grid">
+            <div
+              class="region-card"
+              onclick="
+                filterByRegion('Luzon');
+                switchPage('schools');
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
+                alt="Luzon"
+              />
+              <div class="region-overlay">
+                <h3>Luzon</h3>
+                <p>Batangas, Zambales, Palawan, La Union (14 Schools)</p>
+              </div>
+            </div>
+            <div
+              class="region-card"
+              onclick="
+                filterByRegion('Visayas');
+                switchPage('schools');
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800&q=80"
+                alt="Visayas"
+              />
+              <div class="region-overlay">
+                <h3>Visayas</h3>
+                <p>Panglao, Cebu, Dumaguete, Siquijor (12 Schools)</p>
+              </div>
+            </div>
+            <div
+              class="region-card"
+              onclick="
+                filterByRegion('Mindanao');
+                switchPage('schools');
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+                alt="Mindanao"
+              />
+              <div class="region-overlay">
+                <h3>Mindanao</h3>
+                <p>Davao, Mati, Siargao, Camiguin (6 Schools)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="cta-banner-section">
+          <div class="cta-banner-content">
+            <h2>Ready to Take Your First Breath Underwater?</h2>
+            <p>
+              Join thousands of certified freedivers discovering the
+              crystal-clear blue waters of the Philippines.
+            </p>
+            <button class="cta-btn" onclick="switchPage('booking')">
+              Start Your Booking Now
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 2: FREEDIVING SCHOOLS DIRECTORY -->
+      <section id="page-schools" class="page">
+        <div class="container section-pad">
+          <div class="schools-header">
+            <h2>Freediving Schools Directory</h2>
+            <p>
+              Browse all 32 participating freediving schools across the
+              Philippine archipelago.
+            </p>
+            <div class="controls">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search school name or location..."
+                oninput="renderSchools()"
+              />
+              <div class="filters">
+                <button
+                  class="filter-btn active"
+                  onclick="setRegion('All', this)"
+                >
+                  All (32)
+                </button>
+                <button class="filter-btn" onclick="setRegion('Luzon', this)">
+                  Luzon (14)
+                </button>
+                <button class="filter-btn" onclick="setRegion('Visayas', this)">
+                  Visayas (12)
+                </button>
+                <button
+                  class="filter-btn"
+                  onclick="setRegion('Mindanao', this)"
+                >
+                  Mindanao (6)
+                </button>
+                <button
+                  class="filter-btn klook-filter-btn"
+                  onclick="setRegion('Klook', this)"
+                >
+                  ✨ Klook Partners
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="schoolsGrid" class="schools-grid"></div>
+        </div>
+      </section>
+
+      <!-- SCHOOL DETAILS SUB-VIEW -->
+      <section id="page-school-detail" class="page">
+        <div class="container section-pad" id="schoolDetailContent">
+          <!-- Dynamically injected via JavaScript -->
+        </div>
+      </section>
+
+      <!-- PAGE 3: ABOUT FREEDIVING -->
+      <section id="page-about" class="page">
+        <div class="container section-pad">
+          <div class="content-box">
+            <h2>About Freediving in the Philippines</h2>
+            <p>
+              The Philippines is globally recognized as a premier freediving
+              destination, boasting unmatched marine biodiversity, warm tropical
+              waters, and plunging coral walls from Batangas to Panglao and
+              Davao.
+            </p>
+
+            <h3
+              style="color: var(--cyan); margin-top: 30px; margin-bottom: 15px"
+            >
+              Core Freediving Disciplines
+            </h3>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                margin-bottom: 30px;
+              "
+            >
+              <div
+                style="
+                  background: rgba(15, 42, 74, 0.6);
+                  padding: 20px;
+                  border-radius: 12px;
+                  border: 1px solid var(--border-blue);
+                "
+              >
+                <h4 style="color: white; margin-bottom: 8px">
+                  Static Apnea (STA)
+                </h4>
+                <p style="font-size: 0.85rem; color: #94a3b8">
+                  Holding your breath while floating face down in water. Tests
+                  mental relaxation and oxygen conservation.
+                </p>
+              </div>
+              <div
+                style="
+                  background: rgba(15, 42, 74, 0.6);
+                  padding: 20px;
+                  border-radius: 12px;
+                  border: 1px solid var(--border-blue);
+                "
+              >
+                <h4 style="color: white; margin-bottom: 8px">
+                  Constant Weight (CWT)
+                </h4>
+                <p style="font-size: 0.85rem; color: #94a3b8">
+                  Descending and ascending using fins or monofin with a constant
+                  amount of ballast weight.
+                </p>
+              </div>
+              <div
+                style="
+                  background: rgba(15, 42, 74, 0.6);
+                  padding: 20px;
+                  border-radius: 12px;
+                  border: 1px solid var(--border-blue);
+                "
+              >
+                <h4 style="color: white; margin-bottom: 8px">
+                  Free Immersion (FIM)
+                </h4>
+                <p style="font-size: 0.85rem; color: #94a3b8">
+                  Pulling yourself down and up along a descent line without
+                  fins, focusing purely on equalisation.
+                </p>
+              </div>
+            </div>
+
+            <h3
+              style="color: var(--cyan); margin-top: 30px; margin-bottom: 15px"
+            >
+              Safety & Professional Training
+            </h3>
+            <p>
+              Safety is paramount in freediving. Always dive with a certified
+              buddy or instructor. Professional training ensures you master
+              proper equalisation techniques (Frenzel and Valsalva), rescue
+              protocols, and safe surface protocols.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 4: FAQ -->
+      <section id="page-faq" class="page">
+        <div class="container section-pad">
+          <div class="content-box">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-accordion">
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <h4>
+                  1. Do I need to know how to swim?
+                  <span class="faq-icon">+</span>
+                </h4>
+                <p>
+                  Basic swimming proficiency is required for safety, but
+                  introductory courses welcome beginners with patient instructor
+                  supervision in shallow confined water.
+                </p>
+              </div>
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <h4>
+                  2. What should I bring to my session?
+                  <span class="faq-icon">+</span>
+                </h4>
+                <p>
+                  Bring comfortable swimwear, a rash guard, towel, personal
+                  tumbler for hydration, and cash for local municipal eco-fees.
+                </p>
+              </div>
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <h4>
+                  3. How does Klook external booking work?
+                  <span class="faq-icon">+</span>
+                </h4>
+                <p>
+                  For participating schools with Klook integration, you can scan
+                  their custom QR code or click 'Book Through Klook' to finalize
+                  your reservation directly on Klook.
+                </p>
+              </div>
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <h4>
+                  4. What payment methods are supported for direct website
+                  booking? <span class="faq-icon">+</span>
+                </h4>
+                <p>
+                  We support GCash, Maya, and direct Philippine bank transfers
+                  (BPI / BDO) with manual receipt verification by the school.
+                </p>
+              </div>
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <h4>
+                  5. What is the cancellation and refund policy?
+                  <span class="faq-icon">+</span>
+                </h4>
+                <p>
+                  Cancellations made at least 48 hours before the scheduled dive
+                  date are eligible for rescheduling or partial refund, subject
+                  to individual school terms.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 5: HOW TO BOOK -->
+      <section id="page-how-to-book" class="page">
+        <div class="container section-pad">
+          <div class="content-box">
+            <h2>How to Book Your Sisid</h2>
+            <p>
+              Follow our simple step-by-step guide to secure your underwater
+              training session.
+            </p>
+
+            <div style="margin-top: 30px; display: grid; gap: 25px">
+              <div
+                style="
+                  background: rgba(15, 42, 74, 0.7);
+                  padding: 20px;
+                  border-radius: 16px;
+                  border: 1px solid rgba(34, 211, 238, 0.3);
+                "
+              >
+                <h3
+                  style="
+                    color: var(--cyan);
+                    margin-bottom: 12px;
+                    font-size: 1.1rem;
+                  "
+                >
+                  Option A: Direct Website Booking Process
+                </h3>
+                <ol
+                  style="
+                    padding-left: 18px;
+                    color: #cbd5e1;
+                    display: grid;
+                    gap: 8px;
+                    font-size: 0.92rem;
+                  "
+                >
+                  <li>
+                    Explore the freediving schools directory and view school
+                    profiles.
+                  </li>
+                  <li>Select your preferred school and training course.</li>
+                  <li>Choose optional accommodation and preferred schedule.</li>
+                  <li>
+                    Fill out your customer details and select a payment method
+                    (GCash, Maya, Bank Transfer).
+                  </li>
+                  <li>
+                    Review summary, agree to terms, and submit for school
+                    confirmation.
+                  </li>
+                </ol>
+              </div>
+
+              <div
+                style="
+                  background: rgba(15, 42, 74, 0.7);
+                  padding: 20px;
+                  border-radius: 16px;
+                  border: 1px solid rgba(34, 211, 238, 0.3);
+                "
+              >
+                <h3
+                  style="
+                    color: var(--cyan);
+                    margin-bottom: 12px;
+                    font-size: 1.1rem;
+                  "
+                >
+                  Option B: External Klook Booking Process
+                </h3>
+                <ol
+                  style="
+                    padding-left: 18px;
+                    color: #cbd5e1;
+                    display: grid;
+                    gap: 8px;
+                    font-size: 0.92rem;
+                  "
+                >
+                  <li>
+                    Browse participating schools displaying the Klook Available
+                    badge.
+                  </li>
+                  <li>Open the school's details view.</li>
+                  <li>
+                    Scan the Klook QR code with your phone or click 'Book
+                    Through Klook'.
+                  </li>
+                  <li>
+                    Complete your reservation and secure payment directly on
+                    Klook.
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 6: CONTACT -->
+      <section id="page-contact" class="page">
+        <div class="container section-pad">
+          <div class="content-box">
+            <h2>Contact Sisid PH</h2>
+            <p style="text-align: center; margin-bottom: 25px">
+              Have questions about our directory or partner schools? Get in
+              touch with our support team.
+            </p>
+
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 15px;
+                margin-bottom: 30px;
+                text-align: center;
+              "
+            >
+              <div
+                style="
+                  background: rgba(10, 25, 47, 0.6);
+                  padding: 15px;
+                  border-radius: 10px;
+                  border: 1px solid var(--border-blue);
+                "
+              >
+                <h4
+                  style="
+                    color: var(--cyan);
+                    font-size: 0.88rem;
+                    margin-bottom: 5px;
+                  "
+                >
+                  Support Email
+                </h4>
+                <p style="font-size: 0.82rem; color: #e2e8f0; margin: 0">
+                  support@sisid.ph
+                </p>
+              </div>
+              <div
+                style="
+                  background: rgba(10, 25, 47, 0.6);
+                  padding: 15px;
+                  border-radius: 10px;
+                  border: 1px solid var(--border-blue);
+                "
+              >
+                <h4
+                  style="
+                    color: var(--cyan);
+                    font-size: 0.88rem;
+                    margin-bottom: 5px;
+                  "
+                >
+                  Hotline
+                </h4>
+                <p style="font-size: 0.82rem; color: #e2e8f0; margin: 0">
+                  +63 (917) 555-SISID
+                </p>
+              </div>
+              <div
+                style="
+                  background: rgba(10, 25, 47, 0.6);
+                  padding: 15px;
+                  border-radius: 10px;
+                  border: 1px solid var(--border-blue);
+                "
+              >
+                <h4
+                  style="
+                    color: var(--cyan);
+                    font-size: 0.88rem;
+                    margin-bottom: 5px;
+                  "
+                >
+                  Headquarters
+                </h4>
+                <p style="font-size: 0.82rem; color: #e2e8f0; margin: 0">
+                  Anabu, Imus, Cavite, PH
+                </p>
+              </div>
+            </div>
+
+            <form onsubmit="handleContact(event)">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Juan Dela Cruz"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input
+                  type="email"
+                  required
+                  placeholder="juan.delacruz@example.com"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label>Subject</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="General Inquiry / School Partnership"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label>Message</label>
+                <textarea
+                  required
+                  rows="4"
+                  placeholder="Type your message here..."
+                  class="form-control"
+                ></textarea>
+              </div>
+              <button type="submit" class="cta-btn" style="width: 100%">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 7: MULTI-STEP BOOKING WIZARD -->
+      <section id="page-booking" class="page">
+        <div class="container section-pad">
+          <div class="content-box">
+            <h2>Multi-Step Booking Engine</h2>
+
+            <!-- Progress Bar -->
+            <div class="booking-progress">
+              <div class="step-indicator active" id="ind-1">1. Course</div>
+              <div class="step-indicator" id="ind-2">2. Stay</div>
+              <div class="step-indicator" id="ind-3">3. Schedule</div>
+              <div class="step-indicator" id="ind-4">4. Details</div>
+              <div class="step-indicator" id="ind-5">5. Payment</div>
+              <div class="step-indicator" id="ind-6">6. Summary</div>
+            </div>
+
+            <form id="bookingForm" onsubmit="submitFinalBooking(event)">
+              <!-- STEP 1: SELECT COURSE -->
+              <div class="wizard-step active" id="wstep-1">
+                <h3>Step 1: Select School & Course</h3>
+                <div class="form-group">
+                  <label>Select Freediving School</label>
+                  <select
+                    id="bookSchoolSelect"
+                    onchange="updateCoursesDropdown()"
+                    required
+                    class="form-control custom-select"
+                  >
+                    <option value="">-- Choose School --</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Select Course / Package</label>
+                  <select
+                    id="bookCourseSelect"
+                    onchange="updateCourseDetails()"
+                    required
+                    class="form-control custom-select"
+                  >
+                    <option value="">-- Choose Course --</option>
+                  </select>
+                </div>
+                <div
+                  id="courseInfoBox"
+                  style="
+                    background: rgba(10, 25, 47, 0.7);
+                    padding: 15px;
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                    font-size: 0.9rem;
+                    color: #94a3b8;
+                    display: none;
+                  "
+                >
+                  <!-- Dynamic Course Details -->
+                </div>
+                <div class="form-group">
+                  <label>Number of Participants</label>
+                  <input
+                    type="number"
+                    id="bookParticipants"
+                    value="1"
+                    min="1"
+                    max="10"
+                    required
+                    class="form-control"
+                  />
+                </div>
+                <button
+                  type="button"
+                  class="cta-btn"
+                  style="width: 100%"
+                  onclick="proceedFromStep1()"
+                >
+                  Next: Accommodation →
+                </button>
+              </div>
+
+              <!-- STEP 2: ACCOMMODATION SELECTION -->
+              <div class="wizard-step" id="wstep-2">
+                <h3>Step 2: Accommodation Selection</h3>
+                <div class="form-group">
+                  <label>Would you like to include accommodation?</label>
+                  <select
+                    id="accomChoice"
+                    onchange="
+                      toggleAccomFields();
+                      validateStep2();
+                    "
+                    class="form-control custom-select"
+                  >
+                    <option value="no">No, I already have accommodation</option>
+                    <option value="yes">Yes, I need accommodation</option>
+                  </select>
+                </div>
+                <div id="accomFieldsContainer" style="display: none">
+                  <div class="form-group">
+                    <label>Select Room Type</label>
+                    <select
+                      id="accomRoomSelect"
+                      onchange="validateStep2()"
+                      class="form-control custom-select"
+                    >
+                      <!-- Dynamically populated from school offerings -->
+                    </select>
+                  </div>
+                  <div class="date-grid-responsive">
+                    <div class="form-group">
+                      <label>Check-in Date</label>
+                      <input
+                        type="date"
+                        id="checkInDate"
+                        onchange="validateStep2()"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>Check-out Date</label>
+                      <input
+                        type="date"
+                        id="checkOutDate"
+                        onchange="validateStep2()"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="wizard-btn-flex">
+                  <button
+                    type="button"
+                    class="secondary-btn"
+                    onclick="nextWizardStep(1)"
+                  >
+                    ← Back
+                  </button>
+                  <button
+                    type="button"
+                    id="step2NextBtn"
+                    class="cta-btn"
+                    onclick="proceedFromStep2()"
+                  >
+                    Next: Schedule →
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 3: SCHEDULE -->
+              <div class="wizard-step" id="wstep-3">
+                <h3>Step 3: Preferred Schedule</h3>
+                <div class="form-group">
+                  <label>Preferred Freediving Date</label>
+                  <input
+                    type="date"
+                    id="diveDate"
+                    required
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Preferred Session Time</label>
+                  <select id="diveTime" class="form-control custom-select">
+                    <option value="Morning Session (8:00 AM - 12:00 PM)">
+                      Morning Session (8:00 AM - 12:00 PM)
+                    </option>
+                    <option value="Afternoon Session (1:00 PM - 5:00 PM)">
+                      Afternoon Session (1:00 PM - 5:00 PM)
+                    </option>
+                  </select>
+                </div>
+                <div class="wizard-btn-flex">
+                  <button
+                    type="button"
+                    class="secondary-btn"
+                    onclick="goBackFromStep(3)"
+                  >
+                    ← Back
+                  </button>
+                  <button
+                    type="button"
+                    class="cta-btn"
+                    onclick="nextWizardStep(4)"
+                  >
+                    Next: Customer Info →
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 4: CUSTOMER INFORMATION -->
+              <div class="wizard-step" id="wstep-4">
+                <h3>Step 4: Customer Information</h3>
+                <div class="form-group">
+                  <label>Full Name</label>
+                  <input
+                    type="text"
+                    id="custName"
+                    required
+                    placeholder="Juan Dela Cruz"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input
+                    type="email"
+                    id="custEmail"
+                    required
+                    placeholder="juan.delacruz@example.com"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Contact Number</label>
+                  <input
+                    type="tel"
+                    id="custPhone"
+                    required
+                    placeholder="+63 917 123 4567"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Additional Notes / Special Requests</label>
+                  <textarea
+                    id="custNotes"
+                    rows="3"
+                    placeholder="Dietary restrictions or gear sizing..."
+                    class="form-control"
+                  ></textarea>
+                </div>
+                <div class="wizard-btn-flex">
+                  <button
+                    type="button"
+                    class="secondary-btn"
+                    onclick="nextWizardStep(3)"
+                  >
+                    ← Back
+                  </button>
+                  <button
+                    type="button"
+                    class="cta-btn"
+                    onclick="nextWizardStep(5)"
+                  >
+                    Next: Payment →
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 5: PAYMENT METHOD -->
+              <div class="wizard-step" id="wstep-5">
+                <h3>Step 5: Select Payment Method</h3>
+                <p
+                  style="
+                    font-size: 0.85rem;
+                    color: #94a3b8;
+                    margin-bottom: 15px;
+                  "
+                >
+                  Select your preferred online payment platform in the
+                  Philippines:
+                </p>
+
+                <div class="payment-methods-grid">
+                  <label
+                    class="payment-card active"
+                    onclick="selectPaymentMethod('GCash', this)"
+                  >
+                    <input
+                      type="radio"
+                      name="payMethod"
+                      value="GCash"
+                      checked
+                      hidden
+                    />
+                    <h4>GCash</h4>
+                    <p>Instant digital wallet</p>
+                  </label>
+                  <label
+                    class="payment-card"
+                    onclick="selectPaymentMethod('Maya', this)"
+                  >
+                    <input type="radio" name="payMethod" value="Maya" hidden />
+                    <h4>Maya</h4>
+                    <p>Secure online payment</p>
+                  </label>
+                  <label
+                    class="payment-card"
+                    onclick="selectPaymentMethod('Bank Transfer', this)"
+                  >
+                    <input
+                      type="radio"
+                      name="payMethod"
+                      value="Bank Transfer"
+                      hidden
+                    />
+                    <h4>Bank Transfer</h4>
+                    <p>BPI / BDO Banking</p>
+                  </label>
+                </div>
+
+                <div
+                  id="paymentInstructionsBox"
+                  style="
+                    background: rgba(10, 25, 47, 0.7);
+                    padding: 15px;
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                    font-size: 0.85rem;
+                    color: #cbd5e1;
+                  "
+                >
+                  <strong>GCash Instructions:</strong> Send payment to
+                  0917-555-SISID (Sisid PH Partners). Provide reference number
+                  below.
+                </div>
+
+                <div class="form-group">
+                  <label>Payment Reference Number</label>
+                  <input
+                    type="text"
+                    id="payRefNumber"
+                    required
+                    placeholder="REF-987654321"
+                    class="form-control"
+                  />
+                </div>
+
+                <div class="wizard-btn-flex">
+                  <button
+                    type="button"
+                    class="secondary-btn"
+                    onclick="nextWizardStep(4)"
+                  >
+                    ← Back
+                  </button>
+                  <button
+                    type="button"
+                    class="cta-btn"
+                    onclick="
+                      prepareSummary();
+                      nextWizardStep(6);
+                    "
+                  >
+                    Review Summary →
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 6: BOOKING SUMMARY & SUBMISSION -->
+              <div class="wizard-step" id="wstep-6">
+                <h3>Step 6: Booking Summary</h3>
+                <div
+                  id="summaryContent"
+                  style="
+                    background: rgba(10, 25, 47, 0.7);
+                    padding: 20px;
+                    border-radius: 12px;
+                    margin-bottom: 20px;
+                    font-size: 0.9rem;
+                    color: #cbd5e1;
+                    display: grid;
+                    gap: 10px;
+                  "
+                >
+                  <!-- Injected Summary -->
+                </div>
+
+                <div
+                  class="form-group"
+                  style="display: flex; align-items: flex-start; gap: 10px"
+                >
+                  <input
+                    type="checkbox"
+                    id="termsCheck"
+                    required
+                    style="width: 20px; height: 20px; margin-top: 2px"
+                  />
+                  <label
+                    for="termsCheck"
+                    style="
+                      font-size: 0.85rem;
+                      color: #94a3b8;
+                      margin: 0;
+                      line-height: 1.4;
+                    "
+                    >I agree to the booking terms and understand that bookings
+                    are subject to manual confirmation.</label
+                  >
+                </div>
+
+                <div class="wizard-btn-flex" style="margin-top: 20px">
+                  <button
+                    type="button"
+                    class="secondary-btn"
+                    onclick="nextWizardStep(5)"
+                  >
+                    ← Back
+                  </button>
+                  <button
+                    type="submit"
+                    class="cta-btn"
+                    style="
+                      background: linear-gradient(135deg, #22d3ee, #06b6d4);
+                    "
+                  >
+                    Submit Booking Request
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- SUCCESS MODAL POPUP -->
+    <div id="successModal" class="modal-overlay">
+      <div class="modal-card">
+        <div class="modal-icon">🎉</div>
+        <h3>Booking Request Submitted!</h3>
+        <p>
+          Your booking has been registered successfully. Please save your
+          official reference number:
+        </p>
+        <div class="ref-box" id="modalRefNumber">SISID REF - 001</div>
+        <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 20px">
+          Status: Pending manual confirmation by the school.
+        </p>
+        <button class="cta-btn" onclick="closeSuccessModal()">
+          Return to Home
+        </button>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <h3>SISID PH</h3>
+          <p>
+            Master the art of the sisid. Connecting ocean enthusiasts with
+            accredited freediving schools across the Philippines.
+          </p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#" onclick="switchPage('home')">Home</a></li>
+            <li>
+              <a href="#" onclick="switchPage('schools')">Freediving Schools</a>
+            </li>
+            <li>
+              <a href="#" onclick="switchPage('about')">About Freediving</a>
+            </li>
+            <li>
+              <a href="#" onclick="switchPage('how-to-book')">How to Book</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support & Contact</h4>
+          <ul>
+            <li><a href="#" onclick="switchPage('faq')">FAQ & Policies</a></li>
+            <li><a href="#" onclick="switchPage('contact')">Contact Us</a></li>
+            <li>Email: support@sisid.ph</li>
+            <li>Phone: +63 (917) 555-SISID</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © 2026 Sisid PH. All rights reserved. Designed for Philippine
+          Freediving Exploration.
+        </p>
+      </div>
+    </footer>
+
+    <!-- EmailJS SDK -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "Tp67nF2Qc2PaL-la6",
+        });
+      })();
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
